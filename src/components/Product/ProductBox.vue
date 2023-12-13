@@ -9,7 +9,7 @@
     />
   </div>
   <div class="card-body d-flex flex-column justify-content-between">
-    <router-link :to="{name: 'Showdetails', params: {id: product.id}}">
+    <router-link class="removeA" :to="{name: 'Showdetails', params: {id: product.id}}">
       <h5 class="card-title">{{ product.name }}</h5>
     </router-link>
     <p class="card-text">
@@ -55,5 +55,13 @@ export default {
 <style>
 .card-img-top {
   object-fit: cover;
+}
+.removeA{
+  text-decoration:none;
+  font-size :18px;
+  font-weight:bold;
+  color:#333;
+  display:block;
+
 }
 </style>

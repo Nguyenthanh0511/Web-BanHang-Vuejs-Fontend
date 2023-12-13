@@ -7,8 +7,6 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav> -->
-
-
   <router-view v-if="categories && products" style="min-height: 60vh;"
   :baseURL ="baseURL" 
   :categories="categories"
@@ -17,6 +15,7 @@
   @fetchData="fetchData"
   >
   </router-view>
+  <LogoClouds/>
   <hr>
   <!-- footer -->
   <FooterBox></FooterBox>
@@ -25,6 +24,7 @@
 <script>
 import MainView from './components/MainView.vue';
 import FooterBox from './components/FooterBox.vue';
+import LogoClouds from './views/LogoCloudsComponent.vue';
 // import MainChila from './components/MainChila.vue'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -33,6 +33,7 @@ export default {
   components: {
     MainView,
     FooterBox,
+    LogoClouds,
     // MainChila,
   },
   data(){

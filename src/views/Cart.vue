@@ -37,10 +37,17 @@
       </div>
        <div class="col-2"></div>
       <div class="col-12"><hr /></div>
+        <!-- <a href="#" class="text-right removeA" v-if="cartItems.length" @click="deleteItem(cartItem.id)"
+            >Remove From Cart</a
+          > -->
+        <button class=" btn btn-dark" style="width:15%;" v-if="cartItems.length" @click="deleteItem(itemtId)">
+          Remove Item
+        </button>
     </div>
-      <div class="total-cost pt-2 text-right ">
+      <div class="d-flex justify-content-center total-cost pt-2 text-right ">
         <h5>Total cost all :${{totalCost}}</h5>
       </div>
+    
   </div>
 </template>
 
@@ -100,6 +107,21 @@ export default {
     //         console.log(err);
     //     }
     // },
+    deleteItem(itemtId){
+      axios
+      .delete(`${this.baseURL}cart/delete/${itemtId}/?token=${this.token} `)
+      .then(
+        (responsive)=>{
+          if(responsive.status == 200){
+            this.$router.go(0);
+          }
+          this.$emit('fetchData');
+        },
+        (error)=>{
+          console.log(error)
+        }
+        )
+    }
     
   },
   mounted() {
@@ -110,6 +132,14 @@ export default {
 </script>
 
 <style scoped>
+.removeA{
+  text-decoration:none;
+  font-size :18px;
+  font-weight:bold;
+  color:#333;
+  display:block;
+
+}
   /* Add your styles here if needed */
     /* .image-f */
 </style>

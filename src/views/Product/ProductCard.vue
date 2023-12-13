@@ -19,11 +19,12 @@
         </div>
     </div>
   </div> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha256-Qk/1Wk7YgUnb8wNJtt3g6jrgnQG8T4dx4kTtupv7eNU=" crossorigin="anonymous" />
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
         <h4>Our Products</h4>
-        <router-link :to="{name: 'AddProducts'}" style="float: right"><button class="btn">Add Product</button></router-link>
+        <router-link :to="{name: 'AddProducts'}" style="float: right"><button class="btn btn-dark">Add Product</button></router-link>
       </div>
     </div>
     <div class="row">
@@ -33,17 +34,20 @@
           <ProductBox :product="product"></ProductBox>
         </div>
       </div>
-      <div class="col-md-6 col-xl-4 col-12 d-flex" style="width=250px;">
-        <button style="width=250px;" @click = AgainMore>Load Again
-        </button>  
-        <button style="width=250px;" @click = loadMore>Load More
-        </button>  
+      <div class="col-md-12 col-xl-4 col-12 d-flex justify-content-center " style="width=250px;">
+       <button class="btn btn-primary" @click="AgainMore">
+          <i class="fas fa-chevron-left"></i> Prev
+        </button>
+        <button class="btn btn-primary" @click="loadMore">
+        Next <i class="fas fa-chevron-right"></i>
+      </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import '@fortawesome/fontawesome-free/css/all.css';
 import ProductBox from '../../components/Product/ProductBox.vue'
 export default {
   components: {ProductBox},
@@ -91,6 +95,18 @@ export default {
 </script>
 
 <style>
+
+.btn-primary {
+  background-color: #007bff; /* Màu nền */
+  color: #fff; /* Màu chữ */
+  border-color: #007bff; /* Màu viền */
+}
+
+.btn-primary:hover {
+  background-color: #08121e; /* Màu nền khi hover */
+  border-color: #abbccf; /* Màu viền khi hover */
+}
+
 /* h4 {
   font-family: 'Roboto', sans-serif;
   color: #484848;

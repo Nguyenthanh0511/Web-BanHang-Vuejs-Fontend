@@ -99,6 +99,10 @@ const routes = [
     name:"Cart",
     component:Cart
   },
+  {
+    path:'/',
+    redirect:'/Home'
+  }
 ]
 
 const router = createRouter({

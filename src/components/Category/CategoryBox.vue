@@ -10,7 +10,7 @@
             />
           </div>
           <div class="card-body d-flex flex-column justify-content-between">
-          <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
+          <router-link class="removeA" :to="{name: 'ListProducts', params: {id: category.id} }">
             <h5 class="card-title">{{ category.categoryName }}</h5>
           </router-link>
           <p class="card-text">
@@ -51,6 +51,14 @@ export default {
   object-fit: cover; /* Giữ tỷ lệ 16:9 và điều chỉnh kích thước hình ảnh để lấp đầy phần tử cha */
   max-height: 100%; /* Đảm bảo hình ảnh không vượt quá chiều cao của div cha */
   max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của div cha */
+}
+.removeA{
+  text-decoration:none;
+  font-size :18px;
+  font-weight:bold;
+  color:#333;
+  display:block;
+
 }
 /* .category-box {
   display: flex;

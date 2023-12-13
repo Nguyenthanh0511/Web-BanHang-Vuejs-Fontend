@@ -4,7 +4,7 @@
         <!-- Logo -->
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <router-link class="navbar-brand" :to="{ name: 'Home' }">
-                <img class="mt-3" id="logo" src="../assets/icon.png" />
+                <img class="mt-0" id="logo" src="../assets/LogoTech.png" />
             </router-link>
         </div>
 
@@ -12,17 +12,20 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <div class="input-group btn-custom">
                 <input type="search" class="btn-custom form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="mt-2 btn btn-outline-primary " data-mdb-ripple-init>Search</button>
+                <button type="button" class=" btn btn-outline-primary " style="margin-top: 20px; height:30px;" data-mdb-ripple-init>Search</button>
             </div>
         </div>
         <!-- Login and Accounts -->
         <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <ul class="nav justify-content-center lg-black mt-3 ">
-                <li class="nav-item">
-                    <router-link class="nav-link nav-link-custom text-light bg-primary" :to="{ name: 'SignIn' }">Login</router-link>
+                <li class="nav-item" style="border: 2px solid blue; border-top-left-radius: 10px; border-bottom-left-radius: 10px; background-color: blue; height: 40px;">
+                    <router-link class="nav-link nav-link-custom text-light"  :to="{ name: 'SignIn' }">Login</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link nav-link-custom text-light bg-secondary" :to="{ name: 'AdminView' }">Accounts</router-link>
+                </li>
+                <li class="nav-item" style="border: 1px solid grey; height: 40px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; background-color: grey;">
+                    <router-link class="nav-link nav-link-custom text-light" :to="{ name: 'WishList' }">WishList</router-link>
                 </li>
                 <router-link v-if ="this.token" class="link" :to ="{name:'Cart'}">
               <a  class="cart-contents shopping-cart has-svg-icon" title="View your shopping cart" data-wpel-link="internal">
@@ -85,10 +88,10 @@ export default {
 
 .nav-link-custom{
   color :#ffffff;
-  background-color : #ffa500; 
+  /* background-color : #ffa500;  */
 }
 .nav-link-custom:hover{
-    background-color: #ff4500; /* Màu nền khi di chuột qua */
+    border-radius: 15% 10% 10% 15% ;
 }
 
 
