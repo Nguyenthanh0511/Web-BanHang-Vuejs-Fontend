@@ -2,6 +2,7 @@
   <MainView
     v-if="!['SignUp,SignIn'].includes($router.name)"
   />
+  <hr>
   <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -15,7 +16,6 @@
 
   @fetchData="fetchData"
   >
- 
   </router-view>
   <hr>
   <!-- footer -->

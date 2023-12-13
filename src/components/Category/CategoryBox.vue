@@ -1,7 +1,7 @@
 <template>
 
  <div class="card w-100 h-100" style="margin-top: 10px">
-    <div class="row">
+
           <div class="col-12 col-sm-6 col-xl-12 embed-responsive embed-responsive-16by9">
             <img
               class="card-img-top embed-responsive-item"
@@ -9,18 +9,17 @@
               alt="Card image cap"
             />
           </div>
-          <div class="col-12 col-sm-6 col-xl-12 card-body">
+          <div class="card-body d-flex flex-column justify-content-between">
           <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
             <h5 class="card-title">{{ category.categoryName }}</h5>
           </router-link>
           <p class="card-text">
-            {{ category.description }}  
+            {{ category.description }}
           </p>
           <router-link :to="{name: 'EditCategory', params: {id: category.id}}" v-show="$route.name == 'Category'">
-            <button class="btn btn-primary">Edit</button>
+            <button class="btn btn-primary mt-auto">Edit</button>
           </router-link>     
           <!-- <a href="#" class="btn btn-primary">Edit</a> -->
-        </div>
       </div>    
     
   </div>
@@ -48,8 +47,10 @@ export default {
 </script>
 
 <style scoped>
-.card-img-top{
-  object-fit: cover;
+.card-img-top {
+  object-fit: cover; /* Giữ tỷ lệ 16:9 và điều chỉnh kích thước hình ảnh để lấp đầy phần tử cha */
+  max-height: 100%; /* Đảm bảo hình ảnh không vượt quá chiều cao của div cha */
+  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của div cha */
 }
 /* .category-box {
   display: flex;
