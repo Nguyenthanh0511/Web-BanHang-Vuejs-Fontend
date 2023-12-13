@@ -25,22 +25,22 @@
 <script>
 import MainView from './components/MainView.vue';
 import FooterBox from './components/FooterBox.vue';
+// import MainChila from './components/MainChila.vue'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
 export default {
   components: {
     MainView,
     FooterBox,
-    
+    // MainChila,
   },
   data(){
     return{
       baseURL : "http://limitless-lake-55070.herokuapp.com/",
       products: null,
       categories: null,
-     
+      cartCount: 0,     
     }
   },
   methods: {
@@ -54,6 +54,21 @@ export default {
       await axios.get(this.baseURL + "product/")
       .then((res)=>(this.products = res.data))
       .catch((err)=>console.log('err',err));
+     
+         //fetch cart items
+      if (this.token) {
+        await axios.get(`${this.baseURL}cart/?token=${this.token}`).then(
+          (response) => {
+            if (response.status == 200) {
+              // update cart
+              this.cartCount = Object.keys(response.data.cartItems).length;
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
      },
       loadMore(){
         this.currentPage++;
@@ -64,6 +79,9 @@ export default {
       handler :'fetchData',
       immediate:true,
     }
+  },
+  resetCartCount(){
+    this.cartCount = 0 ;
   },
   mounted() {
     this.fetchData();

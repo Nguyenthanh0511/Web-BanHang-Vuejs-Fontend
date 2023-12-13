@@ -1,120 +1,43 @@
 <template>
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- Logo -->
-    <router-link class="navbar-brand" :to="{ name: 'Home' }">
-      <img id="logo" src="../assets/icon.png" />
-    </router-link>
-
-    <!-- Burger Button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collapsible Content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <!-- Search Bar -->
-      <form class="form-inline ml-auto mr-auto mb-2 mb-lg-0">
-        <div class="input-group">
-          <input
-            size="100"
-            type="text"
-            class="form-control"
-            placeholder="Search Items"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="search-button-navbar">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-search"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                />
-              </svg>
-            </span>
-          </div>
+<div class="container">
+    <div class="row">
+        <!-- Logo -->
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+            <router-link class="navbar-brand" :to="{ name: 'Home' }">
+                <img class="mt-3" id="logo" src="../assets/icon.png" />
+            </router-link>
         </div>
-      </form>
 
-      <!-- DropDowns -->
-      <ul class="navbar-nav ml-auto">
-        <!-- Browse dropdown -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link text-light dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Browse
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link class="dropdown-item" :to="{ name: 'Home' }">Home</router-link>
-            <router-link class="dropdown-item" :to="{ name: 'Category' }">Category</router-link>
-          </div>
-        </li>
+                <!-- Search Bar -->
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+            <div class="input-group btn-custom">
+                <input type="search" class="btn-custom form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="mt-2 btn btn-outline-primary " data-mdb-ripple-init>Search</button>
+            </div>
+        </div>
+        <!-- Login and Accounts -->
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+            <ul class="nav justify-content-center lg-black mt-3 ">
+                <li class="nav-item">
+                    <router-link class="nav-link nav-link-custom text-light bg-primary" :to="{ name: 'SignIn' }">Login</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link nav-link-custom text-light bg-secondary" :to="{ name: 'AdminView' }">Accounts</router-link>
+                </li>
+                <router-link v-if ="this.token" class="link" :to ="{name:'Cart'}">
+              <a  class="cart-contents shopping-cart has-svg-icon" title="View your shopping cart" data-wpel-link="internal">
+              <span class="gp-icon shopping-cart">
+            <svg viewBox="0 0 576 512" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" style="margin-left: 10px;">
+                <path fill="none" d="M0 0h576v512H0z"></path>
+                <path d="M181.54 409.6c-29.249 0-52.914 23.04-52.914 51.2 0 28.16 23.665 51.2 52.915 51.2 29.249 0 53.18-23.04 53.18-51.2 0-28.16-23.931-51.2-53.18-51.2zM22 0v51.2h53.18l95.725 194.304-35.897 62.464C115.598 342.272 141.124 384 181.54 384h319.08v-51.2h-319.08l29.249-51.2h198.096c19.943 0 37.492-10.496 46.533-26.368L550.61 89.088c9.838-16.896-2.925-37.888-23.133-37.888H133.944L108.95 0H22zm425.442 409.6c-29.25 0-52.915 23.04-52.915 51.2 0 28.16 23.665 51.2 52.915 51.2 29.249 0 53.18-23.04 53.18-51.2 0-28.16-23.931-51.2-53.18-51.2z"></path>
+            </svg>
+            </span><span class="number-of-items no-items"></span><span class="amount"></span></a>
+            </router-link>
+            </ul>
 
-        <!-- Accounts dropdown -->  
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link text-light dropdown-toggle"
-            href="#"
-            id="navbarDropdownAccounts"
-            role="button"
-
-            
-        data-toggle="dropdown"
-
-            
-        aria-haspopup="true"
-
-            
-        aria-expanded="false"
-          >
-            Accounts
-          </a>
-
-          
-        <div
-        
-        class="dropdown-menu"
-        
-        aria-labelledby="navbarDropdownAccounts">
-            <a class="dropdown-item" href="#">Admin</a>
-            <a class="dropdown-item show" data-href="/login">Login</a>
-            <a class="dropdown-item show" data-href="/wishlist">Wish list</a>
-          </div>
-        </li>
-        <li class="wc-menu-item menu-item-align-right">
-          <a href="https://webaoe.com/cart/" class="cart-contents shopping-cart has-svg-icon" title="View your shopping cart" data-wpel-link="internal"><span class="gp-icon shopping-cart">
-          <svg viewBox="0 0 576 512" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" style="margin-left: 10px;">
-              <path fill="none" d="M0 0h576v512H0z"></path>
-              <path d="M181.54 409.6c-29.249 0-52.914 23.04-52.914 51.2 0 28.16 23.665 51.2 52.915 51.2 29.249 0 53.18-23.04 53.18-51.2 0-28.16-23.931-51.2-53.18-51.2zM22 0v51.2h53.18l95.725 194.304-35.897 62.464C115.598 342.272 141.124 384 181.54 384h319.08v-51.2h-319.08l29.249-51.2h198.096c19.943 0 37.492-10.496 46.533-26.368L550.61 89.088c9.838-16.896-2.925-37.888-23.133-37.888H133.944L108.95 0H22zm425.442 409.6c-29.25 0-52.915 23.04-52.915 51.2 0 28.16 23.665 51.2 52.915 51.2 29.249 0 53.18-23.04 53.18-51.2 0-28.16-23.931-51.2-53.18-51.2z"></path>
-          </svg>
-          </span><span class="number-of-items no-items"></span><span class="amount"></span></a>
-        </li>
-      </ul>
+        </div>
     </div>
-  </nav>
+</div>
 </template>
 
 <script>
@@ -149,6 +72,7 @@ export default {
 .nav-link {
   color: white;
 }
+
 #logo {
   width: 150px;
   margin-left: 20px;
@@ -156,7 +80,39 @@ export default {
 }
 
 .nav-link {
-  color: rgba(255, 255, 255);
+  color: rgb(215, 206, 206);
+}
+
+.nav-link-custom{
+  color :#ffffff;
+  background-color : #ffa500; 
+}
+.nav-link-custom:hover{
+    background-color: #ff4500; /* Màu nền khi di chuột qua */
+}
+
+
+/* Custom CSS */
+.btn-custom {
+    display: flex;
+    align-items: center;
+}
+
+.btn-custom input {
+    flex: 1;
+    margin-right: 5px; /* Điều chỉnh khoảng cách giữa input và button */
+}
+
+/* Để giảm kích thước và căn chỉnh button */
+.btn-custom button {
+    font-size: 14px;
+    margin-top: 0; /* Loại bỏ margin top thêm vào từ lớp mt-2 */
+}
+
+/* Áp dụng kích thước mới cho button */
+.btn-custom .btn-outline-primary {
+    padding: 1px 10px;
+    font-size: 12px;
 }
 
 #search-button-navbar {
