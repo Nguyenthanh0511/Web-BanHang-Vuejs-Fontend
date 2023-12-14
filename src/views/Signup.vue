@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 text-center pt-3">
           <router-link :to="{ name: 'Home' }">
-            <img id="logo" src="../assets/icon.png" />
+            <img id="logo" src="../assets/LogoTech.png" />
           </router-link>
         </div>
       </div>
@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-12 justify-content-center d-flex flex-row pt-5">
           <div id="signup-div" class="flex-item" style="border: 2px solid black; border-radius: 12px;">
-            <h2 class="pt-4 pl-4">Tạo tài khoản</h2>
+            <h2 class="pt-4 pl-4 text-center">Tạo tài khoản</h2>
             <form @submit="signup" class=" pt-4 pl-4 pr-4">
               <!-- Email Input -->
               <div class="form-group " style="margin-bottom: 10px;">
@@ -73,10 +73,14 @@
               </div>
   
               <!-- Create Account Button -->
-              <button type="submit" class="btn btn-primary mt-3 py-0 pt-2">
-                Create Account
-              </button>
+              
             </form>
+            <div class = "text-center ">
+
+              <button type="submit" class="btn btn-primary  ">
+                  Create Account
+                </button>
+            </div>
             <!-- Horizontal Line -->
             <hr />
             <!-- Already Have an Account? Text -->

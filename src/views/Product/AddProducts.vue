@@ -32,8 +32,10 @@
               <label>Price</label>
               <input type="number" class="form-control" v-model="price" required>
             </div>
-            <button type="button" class="btn btn-primary" @click="addProduct">Submit</button>
           </form>
+          <div>
+            <button type="button" class="d-flex justify-content-center btn btn-primary" @click="addProduct">Submit</button>
+          </div>
         </div>
         <div class="col-3"></div>
       </div>
@@ -41,6 +43,7 @@
   </template>
   
   <script>
+
   import axios from 'axios'
   import swal from'sweetalert'
   export default {

@@ -1,24 +1,6 @@
+//ProductCart.vue 
 <template>
-  <!-- <div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h4 class="pt-3">Sản phẩm</h4>
-            <router-link :to="{name:'AddProducts'}" style="float:right">
-                <button class="btn">Thêm sản phẩm</button>
-            </router-link>
-        </div>  
-    </div>
-    <div class="row">
-      //display all the products in productbox component 
-        <div
-        v-for="product of products"
-        :key ="product.id"
-        class="col-xl-4 col-md-6 col-12 pt-3 d-flex"
-        >
-        <ProductBox :product="product"></ProductBox>
-        </div>
-    </div>
-  </div> -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha256-Qk/1Wk7YgUnb8wNJtt3g6jrgnQG8T4dx4kTtupv7eNU=" crossorigin="anonymous" />
   <div class="container">
     <div class="row">
@@ -34,6 +16,12 @@
           <ProductBox :product="product"></ProductBox>
         </div>
       </div>
+    <!-- display filtered products only when searchTerm is not empty -->
+      <div v-for="(product, index) in filteredProduct" :key="index" class="col-md-6 col-xl-4 col-12 d-flex">
+        <div v-if="searchTerm">
+          <ProductBox :product="product"></ProductBox>
+        </div>
+    </div>
       <div class="col-md-12 col-xl-4 col-12 d-flex justify-content-center " style="width=250px;">
        <button class="btn btn-primary" @click="AgainMore">
           <i class="fas fa-chevron-left"></i> Prev
@@ -45,18 +33,17 @@
     </div>
   </div>
 </template>
-
 <script>
-import '@fortawesome/fontawesome-free/css/all.css';
 import ProductBox from '../../components/Product/ProductBox.vue'
 export default {
   components: {ProductBox},
-  props: ["products"],
+  props: ["products","searchTerm"],
     // Other methods
   data() {
     return {
     pageSize : 9,
     currentPage : 1,
+    // searchTerm:'',
     }
   },
   computed:{
@@ -65,7 +52,8 @@ export default {
     },
     sliceProducts(){
       return this.products.slice(this.startIndex,this.startIndex + this.pageSize);
-    }
+    },
+      
   },
   methods:{
    loadMore(){
@@ -73,8 +61,15 @@ export default {
       },
     AgainMore(){
         this.currentPage--;
-    }
+    },
+    
   },
+  watch:{
+    searchTerm(newTerm){
+      console.log('receviced data product ',newTerm);
+    }
+  }
+  
  
 }
 // import ProductBox from '../../components/Product/ProductBox.vue'

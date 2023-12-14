@@ -1,3 +1,4 @@
+//MainView
 <template>
 <div class="container">
     <div class="row">
@@ -9,14 +10,14 @@
         </div>
 
                 <!-- Search Bar -->
-        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+        <div class="mt-4 col-lg-4 col-md-6 col-sm-6 col-6">
             <div class="input-group btn-custom">
-                <input type="search" class="btn-custom form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class=" btn btn-outline-primary " style="margin-top: 20px; height:30px;" data-mdb-ripple-init>Search</button>
+                <input v-model="searchTerm" @input="SearchProduct" type="search" class="btn-custom form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" @click="SearchProduct" class=" btn btn-outline-primary " style="margin-top: 20px; height:30px;" data-mdb-ripple-init>Search</button>
             </div>
         </div>
         <!-- Login and Accounts -->
-        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+        <div class="mt-4 col-lg-4 col-md-12 col-sm-12 col-12">
             <ul class="nav justify-content-center lg-black mt-3 ">
                 <li class="nav-item" style="border: 2px solid blue; border-top-left-radius: 10px; border-bottom-left-radius: 10px; background-color: blue; height: 40px;">
                     <router-link class="nav-link nav-link-custom text-light"  :to="{ name: 'SignIn' }">Login</router-link>
@@ -56,7 +57,14 @@ export default {
   data() {
     return {
       token: null,
+      searchTerm: '' // lữu trử thông tin tìm kiếm 
     };
+  },
+  methods:{
+    SearchProduct(){
+      this.$emit('search-products',this.searchTerm)
+      console.log('data sent ',this.searchTerm)
+    }
   },
   mounted() {
     console.log("Token :",this.token)

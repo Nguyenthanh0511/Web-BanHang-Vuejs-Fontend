@@ -79,7 +79,11 @@ export default {
     currentPage:{
       handler :'fetchData',
       immediate:true,
+    },
+    searchTerm(newTerm){
+      console.log('receviced data product ',newTerm);
     }
+
   },
   resetCartCount(){
     this.cartCount = 0 ;

@@ -12,9 +12,9 @@
         <div class="row">
             <div class="col-12 justify-content-center d-flex flex-row pt-5">
                 <div id="signup-div" class=" flex-item" style="border: 2px solid black; width: 350px; border-radius: 12px;">
-                    <h2 style="margin-top: 10px;">Đăng nhập</h2>
+                    <h2 class="text-center" style="margin-top: 10px;">Đăng nhập</h2>
                     <form @submit="signin" class="pt-4 pl-4 pr-4 ">
-                         <div class="form-group">
+                         <div class="form-group px-3">
                         <!-- <label style="margin-left: -300px;">Email</label> -->
                         <input
                             type="email"
@@ -27,7 +27,7 @@
                         <br>
                         <!-- Tạo form chập  -->
                        
-                        <div class="form-group">
+                        <div class="form-group px-3 ">
                         <!-- <label style="margin-left: -270px;">Password</label> -->
                         <input
                             type="password"
@@ -116,7 +116,6 @@ methods:{
             this.loading = false;
         })
         //Nếu mật khẩu băng với mk bên trong user thì true 
-
         //Ngược lãi lỗi 
     }
 },
