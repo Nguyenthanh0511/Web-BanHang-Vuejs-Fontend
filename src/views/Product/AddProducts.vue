@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-3"></div>
         <div class="col-md-6 px-5 px-md-0">
-          <form>
+          <form  @submit.prevent>
             <div class="form-group">
               <label>Category</label>
               <select class="form-control" v-model="categoryId" required>
@@ -61,7 +61,6 @@
     methods : {
       async addProduct() {
         const newProduct = {
-          id : this.id,
           categoryId : this.categoryId,
           name : this.name,
           description : this.description,
@@ -86,7 +85,14 @@
             closeOnClickOutside: false,
           });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+        console.error(err);
+        swal({
+          text: "Failed to add product. Please try again.",
+          icon: "error",
+          closeOnClickOutside: false,
+        });
+        });
       }
     },
     mounted() {

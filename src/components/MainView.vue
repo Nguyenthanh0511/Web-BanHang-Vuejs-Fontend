@@ -8,7 +8,6 @@
                 <img class="mt-0" id="logo" src="../assets/LogoTech.png" />
             </router-link>
         </div>
-
                 <!-- Search Bar -->
         <div class="mt-4 col-lg-4 col-md-6 col-sm-6 col-6">
             <div class="input-group btn-custom">
@@ -101,14 +100,11 @@ export default {
 .nav-link-custom:hover{
     border-radius: 15% 10% 10% 15% ;
 }
-
-
 /* Custom CSS */
 .btn-custom {
     display: flex;
     align-items: center;
 }
-
 .btn-custom input {
     flex: 1;
     margin-right: 5px; /* Điều chỉnh khoảng cách giữa input và button */

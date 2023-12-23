@@ -11,7 +11,6 @@
   :baseURL ="baseURL" 
   :categories="categories"
   :products="products"
-
   @fetchData="fetchData"
   >
   </router-view>

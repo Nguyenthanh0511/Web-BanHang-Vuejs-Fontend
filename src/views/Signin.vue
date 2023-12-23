@@ -100,7 +100,7 @@ methods:{
         await axios 
         .post(`${this.baseURL}user/signIn`, user)
         .then((res)=>{
-             localStorage.setItem("token", res.data.token);// token : give to the data , from data this is res.data.token 
+            localStorage.setItem("token", res.data.token);// token : give to the data , from data this is res.data.token 
             this.$emit("fetchData");
             this.$router.push({ name: "Home" });
         })

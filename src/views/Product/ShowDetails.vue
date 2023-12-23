@@ -1,3 +1,4 @@
+//ShowDetail.vue 
 <template>
     <div class="container">
         <div class="row ">
@@ -15,7 +16,6 @@
                     {{ product.description }}
                 </p>
                 <!-- Giá tiền  -->
-                
 
                 <div class="d-flex  flex-row justify-content-between">
                      <div class="input-group col-md-3 col-4 p-0">
@@ -111,7 +111,7 @@ import swal from 'sweetalert'
         return;
     }
     try{
-      const response = await axios.post(`${this.baseURL}cart/add?token=${this.token}`, {
+      const response = await axios.post(`${this.baseURL}carts/add?token=${this.token}`,{
           productId: this.id,
           quantity: this.quantity,
         });
